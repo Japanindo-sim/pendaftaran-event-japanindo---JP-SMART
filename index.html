@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran JP Smart SIM - EVENT INDOJAPAN FEST 2025</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .header-banner {
+        width: 100%;
+        height: auto; 
+        display: block; 
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 30px auto; 
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .form-label {
+            font-weight: 500;
+            color: #495057;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25);
+            border-color: #86b7fe;
+        }
+        .btn-primary {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #b30000;
+            border-color: #b30000;
+            transform: translateY(-2px);
+        }
+        .input-group-text {
+            border-radius: 8px 0 0 8px;
+        }
+        .form-check-input:checked {
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #db3434;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="img/header.png" alt="JP Smart SIM Banner" class="header-banner">
+    </header>
+
+    <div class="container form-container">
+        <div class="card">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="text-center mb-4 fw-bold">Form Pendaftaran JP Smart SIM</h2>
+                <P class="text-center">EVENT INDONESIA JAPAN FRIENDSHIP FESTIVAL 2025</P>
+                <form id="jp-sim-form">
+                    
+                    <!-- Nama Lengkap -->
+                    <div class="mb-3">
+                        <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="namaLengkap" name="Nama Lengkap" oninput="this.value = this.value.toUpperCase()" required placeholder="Contoh: Rohman">
+                    </div>
+
+                    <!-- Alamat Jepang -->
+                    <div class="mb-3">
+                        <label class="form-label">Alamat Jepang Saat Ini</label>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <select class="form-select" id="prefektur" name="Prefektur" required>
+                                    <option value="" selected disabled>Pilih Perfektur...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select" id="kota" name="Kota" required>
+                                    <option value="" selected disabled>Pilih Kota...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nomor WhatsApp -->
+                    <div class="mb-3">
+                        <label for="nomorWhatsapp" class="form-label">Nomor WhatsApp Aktif</label>
+                        <div class="input-group">
+                            <select class="form-select" style="max-width: 90px;" id="whatsappCode" name="whatsappCode" required>
+                                        <option value="+62">+62</option>
+                                        <option value="+81">+81</option>
+                                        <option value="+70">+70</option>
+                                    </select>
+                            <input type="number" class="form-control" id="nomorWhatsapp" name="Nomor WhatsApp" placeholder="8123456789" required>
+                        </div>
+                    </div>
+
+                    <!-- Akun Media Sosial -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label for="akunTiktok" class="form-label">Nama Akun TikTok</label>
+                            <input type="text" class="form-control" id="akunTiktok" name="Akun TikTok" required placeholder="@tiktok_kamu">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="akunMedsos" class="form-label"> Username Facebook atau Instagram</label>
+                            <input type="text" class="form-control" id="akunMedsos" name="Facebook/Instagram" required placeholder="@username">
+                        </div>
+                    </div>
+
+                    <!-- Pilihan Paket -->
+                    <div class="mb-3">
+                        <label class="form-label">Pilihan Paket</label>
+                        <div class="p-3 bg-light border rounded-3">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket1" value="20 GB Call Sim - Sinyal 5G (¥2.178/bulan)" required>
+                                <label class="form-check-label" for="paket1">20 GB Call Sim - Sinyal 5G (¥2.178/bulan)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket2" value="100 GB Call Sim - Sinyal 5G (¥5.478/bulan)">
+                                <label class="form-check-label" for="paket2">100 GB Call Sim - Sinyal 5G (¥5.478/bulan)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket3" value="20 GB Data Sim - Sinyal 4G LTE (¥1.848/bulan)">
+                                <label class="form-check-label" for="paket3">20 GB Data Sim - Sinyal 4G LTE (¥1.848/bulan)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket4" value="100 GB Data Sim - Sinyal 4G LTE (¥5.148/bulan)">
+                                <label class="form-check-label" for="paket4">100 GB Data Sim - Sinyal 4G LTE (¥5.148/bulan)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Jenis Penggunaan -->
+                    <div class="mb-3">
+                        <label class="form-label">Jenis Penggunaan</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Jenis Penggunaan" id="pesanBaru" value="Pesan Nomor Baru" required>
+                            <label class="form-check-label" for="pesanBaru">Pesan Nomor Baru dari JP Smart SIM</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Jenis Penggunaan" id="mnp" value="MNP">
+                            <label class="form-check-label" for="mnp">Gunakan Nomor Jepang Lama (MNP / Pindah Provider)</label>
+                        </div>
+                    </div>
+
+                    <!-- Lama Tinggal & Estimasi Pulang -->
+                    <div class="row g-2 mb-3">
+                         <div class="col-md-6">
+                            <label for="lamaTinggal" class="form-label">Sudah Berapa Lama di Jepang?</label>
+                            <input type="text" class="form-control" id="lamaTinggal" name="Lama Tinggal di Jepang" placeholder="Contoh: 1 tahun 3 bulan" required>
+                        </div>
+                         <div class="col-md-6">
+                            <label for="estimasiPulang" class="form-label">Estimasi Kepulangan ke Indonesia?</label>
+                            <input type="date" class="form-control" id="estimasiPulang" name="Estimasi Pulang" required>
+                        </div>
+                    </div>
+
+                    <!-- [BARU] Konfirmasi Follow Media Sosial -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Konfirmasi Persyaratan Event</label>
+                        <div class="p-3 border bg-light rounded-3">
+                             <p class="mb-2">Apakah kamu sudah follow akun TikTok: <a href="https://www.tiktok.com/@japanindo_travel" target="_blank">@japanindo_travel</a> & akun Instagram: <a href="https://www.instagram.com/jpsmart_id" target="_blank">@jpsmart_id</a>?</p>
+                             <p class="form-text text-danger mt-0 mb-2">
+                                <strong>PENTING:</strong> Jika belum, segera follow sebagai persyaratan event ¥0 + FREE 2 BULAN.
+                             </p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Sudah Follow" id="sudahFollow" name="Konfirmasi Follow" required>
+                                <label class="form-check-label" for="sudahFollow">
+                                    Ya, saya mengerti dan sudah follow kedua akun tersebut.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kode Refferal -->
+                    <div class="mb-4">
+                        <label for="kodeReferral" class="form-label">Kode Referral</label>
+                        <select class="form-select" id="kodeReferral" name="Kode Referral" required>
+                            <option value="" selected disabled>Pilih Kode...</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Kirim Pendaftaran</button>
+                    </div>
+
+                    <div id="loader" class="loader"></div>
+
+                </form>
+                <div class="text-center mt-4">
+                    <p class="text-muted small">
+                        Data yang Anda berikan akan aman tersimpan dan hanya digunakan untuk keperluan pendaftaran JP Smart SIM. Kami menjamin kerahasiaan informasi pribadi Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // GANTI DENGAN URL WEB APP GOOGLE SCRIPT ANDA SETELAH DEPLOY
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3qdmK_DL43LZyifM5dg4yPIcjQVk4PvWgEP4rBwHYeJy4gTLmw5NgwEVYIf3t9RHz/exec';
+        
+        const form = document.getElementById('jp-sim-form');
+        const loader = document.getElementById('loader');
+
+        // Fungsi untuk mengambil data dari Google Sheet dan mengisi dropdown
+        const populateDropdown = (endpoint, elementId, valueField) => {
+            fetch(`${SCRIPT_URL}?action=${endpoint}`)
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById(elementId);
+                    if (data.success && Array.isArray(data.data)) {
+                        data.data.forEach(item => {
+                            const option = document.createElement('option');
+                            option.value = item[valueField];
+                            option.textContent = item[valueField];
+                            select.appendChild(option);
+                        });
+                    } else {
+                        console.error(`Gagal memuat data untuk ${elementId}:`, data.message);
+                    }
+                })
+                .catch(error => console.error(`Error fetching ${elementId}:`, error));
+        };
+
+        const populateAlamat = () => {
+             fetch(`${SCRIPT_URL}?action=getKota`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && Array.isArray(data.data)) {
+                        const prefekturSelect = document.getElementById('prefektur');
+                        const kotaSelect = document.getElementById('kota');
+                        
+                        const prefekturList = [...new Set(data.data.map(item => item.prefektur))];
+                        
+                        prefekturList.sort().forEach(pref => { // sort alphabetically
+                            const option = document.createElement('option');
+                            option.value = pref;
+                            option.textContent = pref;
+                            prefekturSelect.appendChild(option);
+                        });
+
+                        prefekturSelect.addEventListener('change', (e) => {
+                           kotaSelect.innerHTML = '<option value="" selected disabled>Pilih Kota...</option>';
+                           const selectedPref = e.target.value;
+                           const kotaList = data.data
+                                .filter(item => item.prefektur === selectedPref)
+                                .map(item => item.kota)
+                                .sort(); // sort alphabetically
+
+                           kotaList.forEach(kota => {
+                               const option = document.createElement('option');
+                               option.value = kota;
+                               option.textContent = kota;
+                               kotaSelect.appendChild(option);
+                           });
+                        });
+
+                    } else {
+                        console.error(`Gagal memuat data alamat:`, data.message);
+                    }
+                })
+                .catch(error => console.error(`Error fetching alamat:`, error));
+        }
+
+        // Event listener saat DOM dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            populateAlamat();
+            populateDropdown('getKode', 'kodeReferral', 'kode');
+        });
+
+        // Event listener untuk form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            loader.style.display = 'block';
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                loader.style.display = 'none';
+                if(result.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pendaftaran Berhasil!',
+                        html: `Terima kasih banyak telah melakukan pendaftaran. Tim kami akan segera memproses data Anda. Mohon ditunggu informasi selanjutnya melalui WhatsApp.`,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    }).then(() => {
+                        const jenisPenggunaan = data['Jenis Penggunaan'];
+                        if (jenisPenggunaan === 'Pesan Nomor Baru') {
+                            window.location.href = 'https://user.jpmob.jp/users/init?i=wuiaGHumaN2Y7SoSssDojJXo&jpmmnp=1';
+                        } else if (jenisPenggunaan === 'MNP') {
+                            window.location.href = 'https://jpsmart.net/pages/pricing?i=wuiaGHumaN2Y7SoSssDojJXo';
+                        }
+                    });
+                    form.reset();
+                } else {
+                    throw new Error(result.message || 'Terjadi kesalahan.');
+                }
+            })
+            .catch(error => {
+                loader.style.display = 'none';
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops... Gagal!',
+                    text: `Terjadi kesalahan saat mengirim data. Silakan coba lagi. Error: ${error.message}`
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
