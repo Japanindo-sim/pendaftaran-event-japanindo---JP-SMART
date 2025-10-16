@@ -18,19 +18,13 @@
             background-color: #f0f2f5;
         }
         .header-banner {
-        width: 100%;
-        height: auto; 
-        display: block; 
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .form-container {
             max-width: 800px;
-            margin: 30px auto; 
-        }
-
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin: 30px auto;
         }
         .card {
             border: none;
@@ -95,13 +89,13 @@
         <div class="card">
             <div class="card-body p-4 p-md-5">
                 <h2 class="text-center mb-4 fw-bold">Form Pendaftaran JP Smart SIM</h2>
-                <P class="text-center">EVENT INDONESIA JAPAN FRIENDSHIP FESTIVAL 2025</P>
+                <p class="text-center">EVENT INDONESIA JAPAN FRIENDSHIP FESTIVAL 2025</p>
                 <form id="jp-sim-form">
-                    
+
                     <!-- Nama Lengkap -->
                     <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="namaLengkap" name="Nama Lengkap" oninput="this.value = this.value.toUpperCase()" required placeholder="Contoh: Rohman">
+                        <input type="text" class="form-control" id="namaLengkap" name="Nama Lengkap" oninput="this.value = this.value.toUpperCase()" required placeholder="Contoh: ROHMAN">
                     </div>
 
                     <!-- Alamat Jepang -->
@@ -120,15 +114,16 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Nomor WhatsApp -->
                     <div class="mb-3">
                         <label for="nomorWhatsapp" class="form-label">Nomor WhatsApp Aktif</label>
                         <div class="input-group">
                             <select class="form-select" style="max-width: 90px;" id="whatsappCode" name="whatsappCode" required>
-                                        <option value="+62">+62</option>
-                                        <option value="+81">+81</option>
-                                        <option value="+70">+70</option>
-                                    </select>
+                                <option value="+62">+62</option>
+                                <option value="+81">+81</option>
+                                <option value="+70">+70</option>
+                            </select>
                             <input type="number" class="form-control" id="nomorWhatsapp" name="Nomor WhatsApp" placeholder="8123456789" required>
                         </div>
                     </div>
@@ -140,7 +135,7 @@
                             <input type="text" class="form-control" id="akunTiktok" name="Akun TikTok" required placeholder="@tiktok_kamu">
                         </div>
                         <div class="col-md-6">
-                            <label for="akunMedsos" class="form-label"> Username Facebook atau Instagram</label>
+                            <label for="akunMedsos" class="form-label">Username Facebook atau Instagram</label>
                             <input type="text" class="form-control" id="akunMedsos" name="Facebook/Instagram" required placeholder="@username">
                         </div>
                     </div>
@@ -151,23 +146,23 @@
                         <div class="p-3 bg-light border rounded-3">
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket1" value="20 GB Call Sim - Sinyal 5G (¥2.178/bulan)" required>
-                                <label class="form-check-label" for="paket1">20 GB Call Sim - Sinyal 5G (¥2.178/bulan)</label>
+                                <label class="form-check-label" for="paket1">20 GB Call Sim (Telephone dan Internet) - Sinyal 5G (¥2.178/bulan)</label>
                             </div>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket2" value="100 GB Call Sim - Sinyal 5G (¥5.478/bulan)">
-                                <label class="form-check-label" for="paket2">100 GB Call Sim - Sinyal 5G (¥5.478/bulan)</label>
+                                <label class="form-check-label" for="paket2">100 GB Call Sim (Telephone dan Internet) - Sinyal 5G (¥5.478/bulan)</label>
                             </div>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket3" value="20 GB Data Sim - Sinyal 4G LTE (¥1.848/bulan)">
-                                <label class="form-check-label" for="paket3">20 GB Data Sim - Sinyal 4G LTE (¥1.848/bulan)</label>
+                                <label class="form-check-label" for="paket3">20 GB Data Sim (Internet Saja) - Sinyal 4G LTE (¥1.848/bulan)</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="Pilihan Paket" id="paket4" value="100 GB Data Sim - Sinyal 4G LTE (¥5.148/bulan)">
-                                <label class="form-check-label" for="paket4">100 GB Data Sim - Sinyal 4G LTE (¥5.148/bulan)</label>
+                                <label class="form-check-label" for="paket4">100 GB Data Sim (Internet Saja)  - Sinyal 4G LTE (¥5.148/bulan)</label>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Jenis Penggunaan -->
                     <div class="mb-3">
                         <label class="form-label">Jenis Penggunaan</label>
@@ -193,7 +188,7 @@
                         </div>
                     </div>
 
-                    <!-- [BARU] Konfirmasi Follow Media Sosial -->
+                    <!-- Konfirmasi Follow Media Sosial -->
                     <div class="mb-3">
                         <label class="form-label fw-bold">Konfirmasi Persyaratan Event</label>
                         <div class="p-3 border bg-light rounded-3">
@@ -210,12 +205,10 @@
                         </div>
                     </div>
 
-                    <!-- Kode Refferal -->
+                    <!-- Kode Referral -->
                     <div class="mb-4">
                         <label for="kodeReferral" class="form-label">Kode Referral</label>
-                        <select class="form-select" id="kodeReferral" name="Kode Referral" required>
-                            <option value="" selected disabled>Pilih Kode...</option>
-                        </select>
+                        <input type="text" class="form-control" id="kodeReferral" name="Kode Referral" placeholder="Masukkan kode jika ada">
                     </div>
 
                     <div class="d-grid">
@@ -244,26 +237,7 @@
         const form = document.getElementById('jp-sim-form');
         const loader = document.getElementById('loader');
 
-        // Fungsi untuk mengambil data dari Google Sheet dan mengisi dropdown
-        const populateDropdown = (endpoint, elementId, valueField) => {
-            fetch(`${SCRIPT_URL}?action=${endpoint}`)
-                .then(response => response.json())
-                .then(data => {
-                    const select = document.getElementById(elementId);
-                    if (data.success && Array.isArray(data.data)) {
-                        data.data.forEach(item => {
-                            const option = document.createElement('option');
-                            option.value = item[valueField];
-                            option.textContent = item[valueField];
-                            select.appendChild(option);
-                        });
-                    } else {
-                        console.error(`Gagal memuat data untuk ${elementId}:`, data.message);
-                    }
-                })
-                .catch(error => console.error(`Error fetching ${elementId}:`, error));
-        };
-
+        // Fungsi untuk mengambil dan mengisi data alamat
         const populateAlamat = () => {
              fetch(`${SCRIPT_URL}?action=getKota`)
                 .then(response => response.json())
@@ -307,7 +281,6 @@
         // Event listener saat DOM dimuat
         document.addEventListener('DOMContentLoaded', () => {
             populateAlamat();
-            populateDropdown('getKode', 'kodeReferral', 'kode');
         });
 
         // Event listener untuk form submission
